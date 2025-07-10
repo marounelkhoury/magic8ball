@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Re-enable the button
             magicButton.disabled = false;
-            magicButton.textContent = "Get Answer";
+            magicButton.textContent = "Ask and shake again";
         }, 5000); // 5000 milliseconds = 5 seconds
     });
 });
