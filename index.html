@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic 8-Ball</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: black;
+            margin: 0;
+            overflow-x: hidden; /* Prevent horizontal scrollbar on smaller screens */
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            padding: 0 10px; /* Add horizontal padding for smaller screens */
+            box-sizing: border-box; /* Include padding in element's total width */
+        }
+        #magicButton {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            margin-bottom: 20px;
+            max-width: 90%; /* Prevent button from getting too wide on very large screens */
+        }
+        #magicButton:hover {
+            background-color: #45a049;
+        }
+
+        .image-container {
+            position: relative;
+            width: 90%; /* Use percentage for responsiveness */
+            max-width: 600px; /* Max width for larger screens */
+            height: auto;
+            display: inline-block;
+        }
+
+        #magic8ballImage {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        #answerField {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px;
+            width: 50%; /* This width is relative to the image-container */
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            background-color: transparent;
+            border: none;
+            box-sizing: border-box;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        /* --- Shake Animation CSS --- */
+        .shake {
+            animation: shake 0.5s infinite alternate;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        /* --- End Shake Animation CSS --- */
+
+        /* --- Media Queries for Phone Responsiveness --- */
+        @media (max-width: 768px) { /* For tablets and smaller */
+            h1 {
+                font-size: 2em; /* Slightly smaller heading */
+            }
+            #magicButton {
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+            .image-container {
+                width: 95%; /* Make it slightly wider on smaller screens if needed */
+            }
+            #answerField {
+                font-size: 1.2em; /* Smaller font for answer on phones */
+                width: 60%; /* May need to adjust this for better fit on phone */
+            }
+        }
+
+        @media (max-width: 480px) { /* For most smartphones */
+            h1 {
+                font-size: 1.8em; /* Even smaller heading */
+            }
+            #magicButton {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+            #answerField {
+                font-size: 1em; /* Adjust answer font for smallest screens */
+                width: 70%; /* Give it more room on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Ask the Magic 8-Ball!</h1>
+    <button id="magicButton">Get Answer</button>
+    <div class="image-container">
+        <img id="magic8ballImage" src="magic8ball.png" alt="Magic 8-Ball">
+        <div id="answerField">Ask a question...</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
